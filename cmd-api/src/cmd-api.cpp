@@ -219,7 +219,7 @@ char* CommandLine::mygetoptW(int argc, char** argv, char* format) {
 		curr_option = ++argv[optind];
 		if ((formatind = isSubstring(argv[optind], format)) >= 0) {
 			argformatind = formatind + strlen(argv[optind]);
-			/*Format substring is at the end of the format line*/
+			/*Format substring is not at the end of the format line*/
 			if (argformatind < (int)strlen(format)) {
 				argvind = optind + 1;
 				/*if the argument index (argvind) in the array is not out of bounds*/
