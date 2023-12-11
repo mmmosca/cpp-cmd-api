@@ -45,13 +45,13 @@ int main(int argc, char* argv[]) {
 			continue;
 		}
         if (strcmp(w, "opt1") == 0) {
-			/*use cmd.myoptarg that has the argument of opt1*/
-			continue;
-		}
-		if (strcmp(w, "opt2") == 0) {
-			/*use cmd.myoptarg that has the argument of opt2*/
-			continue;
-		}
+            /*use cmd.myoptarg that has the argument of opt1*/
+            continue;
+        }
+        if (strcmp(w, "opt2") == 0) {
+            /*use cmd.myoptarg that has the argument of opt2*/
+            continue;
+        }
     }
     ...
 }
