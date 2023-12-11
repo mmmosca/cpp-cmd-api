@@ -27,11 +27,11 @@ void test_longopt_basic()
   
 	while ((w = cmd.mygetoptW(5, arr, "opt1:|opt2:|")) != NULL) {
 		if (strcmp(w, "opt1") == 0) {
-      assert(strcmp(cmd.myoptarg, "val1") == 0);
+			assert(strcmp(cmd.myoptarg, "val1") == 0);
 			continue;
 		}
 		if (strcmp(w, "opt2") == 0) {
-      assert(strcmp(cmd.myoptarg, "val2") == 0);
+			assert(strcmp(cmd.myoptarg, "val2") == 0);
 			continue;
 		}
 	}

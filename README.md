@@ -1,5 +1,5 @@
 # cpp-cmd-api
-C++ API for handling command line parameters
+C++ API for Windows to handle command line parameters with short and long options
 
 ## Installation (Windows)
 1. Install Visual Studio (e.g. Community) choosing the following `single components`:
@@ -32,6 +32,29 @@ C++ API for handling command line parameters
 ```
 cd build
 ctest --build-config Release --build-target install
+```
+
+## Usage example
+```
+int main(int argc, char* argv[]) {
+    ...
+    while ((w = cmd.mygetoptW(argc, argv, "-o:|opt1:|opt2:|")) != NULL)
+    {
+        if (strcmp(w, "o") == 0) {
+			/*use cmd.myoptarg that has the argument of o*/
+			continue;
+		}
+        if (strcmp(w, "opt1") == 0) {
+			/*use cmd.myoptarg that has the argument of opt1*/
+			continue;
+		}
+		if (strcmp(w, "opt2") == 0) {
+			/*use cmd.myoptarg that has the argument of opt2*/
+			continue;
+		}
+    }
+    ...
+}
 ```
 
 ## Shared library
