@@ -1,4 +1,4 @@
-#[[
+/*
 This program is free software: you can redistribute it and/or 
 modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation, either version 3
@@ -13,14 +13,21 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see https://www.gnu.org/licenses/.
  
 Author Marco M. Mosca, email: marcomichele.mosca@gmail.com
-]]
+*/
+#include "cmd-api.h"
 
-cmake_minimum_required(VERSION 3.0.0)
-project(cmd-api VERSION 0.1.0 LANGUAGES C CXX)
 
-include(CTest)
+void test_longopt_missedarg_error()
+{
+	CommandLine cmd;
+	char* arr[] = {"exe", "-opt1", "-opt2", "val2"};
+	char* w;
+  
+	while ((w = cmd.mygetoptW(4, arr, "opt1:|opt2:|")) != NULL);
+}
 
-add_subdirectory (cmd-api)
-add_subdirectory (tests)
-
-enable_testing()
+int main()
+{
+  test_longopt_missedarg_error();
+  return 0;
+}
