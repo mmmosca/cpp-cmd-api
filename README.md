@@ -27,3 +27,17 @@ C++ API for handling command line parameters
 5. When using the library in your project make sure to:
     - Include `<install_folder>/include`
     - Link the shared library in `<install_folder>/lib`
+
+## Tests (Windows)
+1. Install the static library:
+    ```
+    "%VS_DIR%\VC\Auxiliary\Build\vcvarsall.bat" x64_x86
+    cd cpp-cmd-api
+    cmake -B build -S . -L -DCMAKE_INSTALL_PREFIX=<install_folder>
+    cmake --build build --target install --config Release
+    ```
+2. Run tests:
+    ```
+    cd build
+    ctest --build-config Release --build-target install
+    ```
