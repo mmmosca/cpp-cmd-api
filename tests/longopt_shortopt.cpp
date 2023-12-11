@@ -15,6 +15,7 @@ along with this program. If not, see https://www.gnu.org/licenses/.
 Author Marco M. Mosca, email: marcomichele.mosca@gmail.com
 */
 #include "cmd-api.h"
+#include <cassert>
 
 
 void test_longopt_shortopt_error()
@@ -23,7 +24,16 @@ void test_longopt_shortopt_error()
 	char* arr[] = {"exe", "-o", "val1", "-opt2", "val2"};
 	char* w;
   
-	while ((w = cmd.mygetoptW(5, arr, "o:|opt2:|")) != NULL);
+	while ((w = cmd.mygetoptW(5, arr, "o:|opt2:|")) != NULL) {
+		if (strcmp(w, "o") == 0) {
+      		assert(strcmp(cmd.myoptarg, "val1") == 0);
+			continue;
+		}
+		if (strcmp(w, "opt2") == 0) {
+      		assert(strcmp(cmd.myoptarg, "val2") == 0);
+			continue;
+		}
+	}
 }
 
 int main()
