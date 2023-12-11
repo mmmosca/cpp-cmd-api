@@ -41,9 +41,9 @@ int main(int argc, char* argv[]) {
     while ((w = cmd.mygetoptW(argc, argv, "-o:|opt1:|opt2:|")) != NULL)
     {
         if (strcmp(w, "o") == 0) {
-			/*use cmd.myoptarg that has the argument of o*/
-			continue;
-		}
+            /*use cmd.myoptarg that has the argument of o*/
+            continue;
+        }
         if (strcmp(w, "opt1") == 0) {
             /*use cmd.myoptarg that has the argument of opt1*/
             continue;
