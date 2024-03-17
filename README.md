@@ -35,7 +35,7 @@ ctest --build-config Release --build-target install
 #include "cmd-api.h"
 int main(int argc, char* argv[]) {
     CommandLine cmd;
-	char* w;
+    char* w;
     while ((w = cmd.mygetoptW(argc, argv, "o:|opt1:|opt2:|")) != NULL)
     {
         if (strcmp(w, "o") == 0) {
