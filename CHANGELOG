@@ -1,5 +1,9 @@
 All changes to the repository will be reported here
 
+## [0.1.2]
+### Changed
+- Runtime libraries moved to bin folder in cmake install
+
 ## [0.1.1]
 ### Changed
 - Typo in README example with short option
