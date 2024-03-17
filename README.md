@@ -3,14 +3,10 @@ C++ API for Windows to handle command line parameters with short and long option
 
 ## Installation (Windows)
 1. Install Visual Studio (e.g. Community) choosing the following `single components`:
-    - `.NET SDK`
-    - `.NET 7.0 Runtime`
-    - `MSVC v142 - C++ Build tools`
-    - `MSVC v143 - C++ Build tools`
-    - `C++/CLI for Build Tools v142`
-    - `Windows 10 SDK (10.2.20348.0)`
+    - `MSVC v142+ - C++ Build tools`
+    - `C++/CLI for Build Tools v142+`
+    - `Windows 10 SDK (10.2.20348.0+)`
     - `CMake C++ Tools for Windows`
-    - `Git for Windows`
 
 2. Download the repository
 
@@ -38,7 +34,7 @@ ctest --build-config Release --build-target install
 ```
 int main(int argc, char* argv[]) {
     ...
-    while ((w = cmd.mygetoptW(argc, argv, "-o:|opt1:|opt2:|")) != NULL)
+    while ((w = cmd.mygetoptW(argc, argv, "o:|opt1:|opt2:|")) != NULL)
     {
         if (strcmp(w, "o") == 0) {
             /*use cmd.myoptarg that has the argument of o*/
