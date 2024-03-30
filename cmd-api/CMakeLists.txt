@@ -14,6 +14,7 @@ along with this program. If not, see https://www.gnu.org/licenses/.
  
 Author Marco M. Mosca, email: marcomichele.mosca@gmail.com
 ]]
+include(CMakePackageConfigHelpers)
 
 IF(WIN32)
 	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
@@ -25,6 +26,10 @@ set( SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src" )
 set( HEADER_FILES ${INCLUDE_DIR}/cmd-api.h)
 set( SRC_FILES ${SRC_DIR}/cmd-api.cpp)
 
+set ( INSTALL_LIB lib )
+set ( INSTALL_BIN bin )
+set ( INSTALL_LIBRARIES ${INSTALL_LIB}/${PROJECT_NAME}.lib )
+set ( INSTALL_RUNTIME ${INSTALL_BIN}/${PROJECT_NAME}.dll )
 if (SHARED)
     add_library(${PROJECT_NAME} SHARED ${SRC_FILES} ${HEADER_FILES})
 ELSE()
@@ -36,6 +41,21 @@ set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
-install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
-install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION lib)
-install(FILES ${HEADER_FILES} DESTINATION include)
+set(INSTALL_INCLUDE_DIR include)
+set(INSTALL_CONFIG_FILE cmake)
+configure_package_config_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmd-apiConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/cmd-apiConfig.cmake
+    INSTALL_DESTINATION ${INSTALL_CONFIG_FILE}
+    PATH_VARS INSTALL_INCLUDE_DIR INSTALL_LIBRARIES INSTALL_RUNTIME
+)
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${INSTALL_BIN})
+install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION ${INSTALL_LIB})
+install(FILES
+    ${HEADER_FILES}
+    DESTINATION ${INSTALL_INCLUDE_DIR}
+)
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/cmd-apiConfig.cmake
+    DESTINATION ${INSTALL_CONFIG_FILE}
+)
