@@ -1,5 +1,9 @@
 All changes to the repository will be reported here
 
+## [0.2.1]
+### Fixed
+- Objects export for static and shared library build
+
 ## [0.2.0]
 ### Added
 - Cmake.in file to export objects
