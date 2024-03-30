@@ -50,6 +50,6 @@ public:
 		reset_values();
 	};
 
-	char* mygetoptW(int argc, char** argv, char* format);
+	char* getoptW(int argc, char** argv, char* format);
 };
 #endif /* CMD_H_ */

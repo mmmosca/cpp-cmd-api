@@ -107,7 +107,7 @@ void CommandLine::reset_values() {
 	argformatind = 0;
 }
 
-char* CommandLine::mygetoptW(int argc, char** argv, char* format) {
+char* CommandLine::getoptW(int argc, char** argv, char* format) {
 
 	/*if optind is one means that there are no more options*/
 	if (optind == -1) {

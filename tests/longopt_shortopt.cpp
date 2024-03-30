@@ -24,7 +24,7 @@ void test_longopt_shortopt_error()
 	char* arr[] = {"exe", "-o", "val1", "-opt2", "val2"};
 	char* w;
   
-	while ((w = cmd.mygetoptW(5, arr, "o:|opt2:|")) != NULL) {
+	while ((w = cmd.getoptW(5, arr, "o:|opt2:|")) != NULL) {
 		if (strcmp(w, "o") == 0) {
       		assert(strcmp(cmd.myoptarg, "val1") == 0);
 			continue;
