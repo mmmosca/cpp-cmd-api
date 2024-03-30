@@ -34,6 +34,8 @@ if (SHARED)
     set ( INSTALL_RUNTIME ${INSTALL_BIN}/${PROJECT_NAME}.dll )
 ELSE()
     add_library(${PROJECT_NAME} STATIC ${SRC_FILES} ${HEADER_FILES})
+    set ( INSTALL_RUNTIME "" )
+
 ENDIF()
 target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIR})
 
