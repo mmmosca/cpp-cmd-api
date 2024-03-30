@@ -1,5 +1,9 @@
 All changes to the repository will be reported here
 
+## [0.2.0]
+### Added
+- Cmake.in file to export objects
+
 ## [0.1.2]
 ### Changed
 - Runtime libraries moved to bin folder in cmake install
