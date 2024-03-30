@@ -23,7 +23,7 @@ void test_longopt_format_missedendbar_error()
 	char* arr[] = {"exe", "-opt1", "val1", "-opt2"};
 	char* w;
   
-	while ((w = cmd.mygetoptW(4, arr, "opt1:|opt2")) != NULL);
+	while ((w = cmd.getoptW(4, arr, "opt1:|opt2")) != NULL);
 }
 
 int main()

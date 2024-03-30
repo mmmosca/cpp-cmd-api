@@ -23,7 +23,7 @@ void test_longopt_missedarg_error()
 	char* arr[] = {"exe", "-opt1", "-opt2", "val2"};
 	char* w;
   
-	while ((w = cmd.mygetoptW(4, arr, "opt1:|opt2:|")) != NULL);
+	while ((w = cmd.getoptW(4, arr, "opt1:|opt2:|")) != NULL);
 }
 
 int main()

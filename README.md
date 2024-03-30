@@ -71,6 +71,7 @@ int main(int argc, char* argv[]) {
 ## Tests (only on static build)
 ```
 cmake -B build -S . -L -DCMAKE_INSTALL_PREFIX=<install_folder>
+cmake --build .\build --target install --config Release
 cd build
 ctest --build-config Release --build-target install
 ```

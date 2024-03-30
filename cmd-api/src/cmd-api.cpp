@@ -107,7 +107,7 @@ void CommandLine::reset_values() {
 	argformatind = 0;
 }
 
-char* CommandLine::mygetoptW(int argc, char** argv, char* format) {
+char* CommandLine::getoptW(int argc, char** argv, char* format) {
 
 	/*if optind is one means that there are no more options*/
 	if (optind == -1) {
@@ -126,13 +126,6 @@ char* CommandLine::mygetoptW(int argc, char** argv, char* format) {
 		puts("Error in parameters number!");
 		return NULL;
 	}
-	/*option element must have more than 2 characters (i.e. -steps)
-	if (strlen(argv[optind]) <= 2) {
-		PRINT_DATAW();
-		puts("Options syntax invalid!");
-		exit(EXIT_FAILURE);
-	}*/
-	/*the first element of an option must be '-'*/
 	if (argv[optind][0] != '-') {
 		PRINT_DATAW();
 		puts("It is not an option!");
