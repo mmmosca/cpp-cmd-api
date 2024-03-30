@@ -44,7 +44,7 @@ private:
 	char* strsep(char** elem_pointer, char* pattern);
 	void reset_values();
 public:
-	char* myoptarg;
+	char* optargW;
 
 	CommandLine() : start{ 1 }, formatind{ -1 }, argformatind{ 0 } {
 		reset_values();

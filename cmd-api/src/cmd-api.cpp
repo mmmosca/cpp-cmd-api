@@ -102,7 +102,7 @@ char* CommandLine::strsep(char** elem_pointer, char* pattern) {
 void CommandLine::reset_values() {
 	optind = 1;
 	argvind = 2;
-	myoptarg = NULL;
+	optargW = NULL;
 	formatind = -1;
 	argformatind = 0;
 }
@@ -142,16 +142,16 @@ char* CommandLine::getoptW(int argc, char** argv, char* format) {
 			if (argvind <= argc - 1) {
 				/*if there is a ':' in format string, argument is expected after*/
 				if (format[argformatind] == ':') {
-					/*argument expected, update the myoptarg*/
+					/*argument expected, update the optargW*/
 					if (argv[argvind][0] != '-') {
-						myoptarg = argv[argvind];
+						optargW = argv[argvind];
 						PRINT_DATAW();
 						optind += 2;
 					}
 					/*there is '-' in the argument*/
 					else
 					{
-						myoptarg = argv[argvind];
+						optargW = argv[argvind];
 						PRINT_DATAW();
 						puts("This option should have a parameter!");
 						exit(EXIT_FAILURE);
@@ -162,7 +162,7 @@ char* CommandLine::getoptW(int argc, char** argv, char* format) {
 
 					/*check forward if there is no option*/
 					if (argv[argvind][0] != '-') {
-						myoptarg = argv[argvind];
+						optargW = argv[argvind];
 						PRINT_DATAW();
 						puts("This option must not have a parameter!");
 						exit(EXIT_FAILURE);
@@ -173,7 +173,7 @@ char* CommandLine::getoptW(int argc, char** argv, char* format) {
 						puts("Format and input are not valid!");
 						exit(EXIT_FAILURE);
 					}
-					myoptarg = NULL;
+					optargW = NULL;
 					PRINT_DATAW();
 					optind++;
 				}
@@ -186,7 +186,7 @@ char* CommandLine::getoptW(int argc, char** argv, char* format) {
 					puts("Format and input are not valid!");
 					exit(EXIT_FAILURE);
 				}
-				myoptarg = NULL;
+				optargW = NULL;
 				PRINT_DATAW();
 				optind++;
 			}
@@ -199,7 +199,7 @@ char* CommandLine::getoptW(int argc, char** argv, char* format) {
 				puts("Format and input are not valid!");
 				exit(EXIT_FAILURE);
 			}
-			myoptarg = NULL;
+			optargW = NULL;
 			PRINT_DATAW();
 			optind++;
 		}
@@ -208,7 +208,7 @@ char* CommandLine::getoptW(int argc, char** argv, char* format) {
 		return curr_option;
 	}
 	else {
-		myoptarg = NULL;
+		optargW = NULL;
 		PRINT_DATAW();
 		puts("Unknown option!");
 		exit(EXIT_FAILURE);
